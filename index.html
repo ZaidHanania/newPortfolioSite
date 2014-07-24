@@ -1,0 +1,57 @@
+<!DOCTYPE html><html lang="en"></html><head><meta charset="UTF-8"/><title>Zaid Hanania</title><link rel="stylesheet" href="main.css"/><link href="http://fonts.googleapis.com/css?family=Lato:100,300,400" rel="stylesheet" type="text/css"/><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script></head><body><div class="hero"><div class="box selected"><h1>Zaid Hanania</h1><h2>Front-end Web Developer</h2></div><nav><ul><li class="aboutli">About Me</li><li class="skillsli">Skills</li><li class="portfolioli">Portfolio</li><li class="contactli">Contact Me</li></ul></nav><div class="about"><h3>About Me</h3><img src="images/about.jpg" alt=""/><p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto ut rem officiis unde corrupti repellat numquam accusamus porro quisquam incidunt beatae ad culpa, aut, quod et excepturi, atque neque aperiam!</p></div><div class="skills"><h3>My Skills</h3><p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto ut rem officiis unde corrupti repellat numquam accusamus porro quisquam incidunt beatae ad culpa, aut, quod et excepturi, atque neque aperiam!</p></div><div class="portfolio"><h3>Portfolio</h3><p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto ut rem officiis unde corrupti repellat numquam accusamus porro quisquam incidunt beatae ad culpa, aut, quod et excepturi, atque neque aperiam!</p></div><div class="form"><form action="#"></form><input type="text" placeholder="Name"/><input type="text" placeholder="Email"/><textarea name="" id="" placeholder="Description"></textarea><input type="submit" value="Submit"/></div></div></body><script>$(window).scroll(function() {
+ $(".box").css({
+ 'opacity' : 1-(($(this).scrollTop())/250)
+ });          
+}); 
+
+var zindex = 9000;
+
+$('.box').on('click', function() {
+  zindex++;
+  $('.about').css('z-index', zindex);
+  $('.box').css('transform', 'scale(0.01)').fadeOut(1300);
+  $('.selected').removeClass('selected');
+  $('.about').css('transform', 'scale(10)').fadeIn(1300);;
+  $('.about').css('transform', 'scale(1)');
+  $('.about').addClass('selected');
+});
+
+$('.aboutli').on('click', function() {
+  zindex++;
+  $('.about').css('z-index', zindex);
+  $('.selected').css('transform', 'scale(0.01)').fadeOut(1300);
+  $('.selected').removeClass('selected');
+  $('.about').css('transform', 'scale(10)').fadeIn(1300);
+  $('.about').css('transform', 'scale(1)');
+  $('.about').addClass('selected');
+});
+
+$('.skillsli').on('click', function() {
+  zindex++;
+  $('.skills').css('z-index', zindex);
+  $('.selected').css('transform', 'scale(0.01)').fadeOut(1300);
+  $('.selected').removeClass('selected');
+  $('.skills').css('transform', 'scale(10)').fadeIn(1300);
+  $('.skills').css('transform', 'scale(1)');
+  $('.skills').addClass('selected');
+});
+
+$('.portfolioli').on('click', function() {
+  zindex++;
+  $('.portfolio').css('z-index', zindex);
+  $('.selected').css('transform', 'scale(0.01)').fadeOut(1300);
+  $('.selected').removeClass('selected');
+  $('.portfolio').css('transform', 'scale(10)').fadeIn(1300);
+  $('.portfolio').css('transform', 'scale(1)');
+  $('.portfolio').addClass('selected');
+});
+
+$('.contactli').on('click', function() {
+  zindex++;
+  $('.form').css('z-index', zindex);
+  $('.selected').css('transform', 'scale(0.01)').fadeOut(1300);
+  $('.selected').removeClass('selected');
+  $('.form').css('transform', 'scale(10)').fadeIn(1300);
+  $('.form').css('transform', 'scale(1)');
+  $('.form').addClass('selected');
+});</script>

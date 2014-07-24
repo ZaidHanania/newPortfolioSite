@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Zaid Hanania
+	link(rel="stylesheet", href="main.css")
+	link(href='http://fonts.googleapis.com/css?family=Lato:100,300,400', rel='stylesheet', type='text/css')
+	script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+body
+	.hero
+		.box.selected
+			h1 Zaid Hanania
+			h2 Front-end Web Developer
+
+		//- <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg enable-background="new 0 0 50 50" height="50px" id="Layer_1" version="1.1" viewBox="0 0 50 50" width="50px" xml:space="preserve" xmlns="http://www.w3.org/1300/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><rect fill="none" height="50" width="50"/><polygon points="47.25,15 45.164,12.914 25,33.078 4.836,12.914 2.75,15 25,37.25 "/></svg>
+
+		nav
+			ul
+				li.aboutli About Me
+				li.skillsli Skills
+				li.portfolioli Portfolio
+				li.contactli Contact Me
+
+		.about
+			h3 About Me
+			img(src="images/about.jpg", alt="")
+			p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto ut rem officiis unde corrupti repellat numquam accusamus porro quisquam incidunt beatae ad culpa, aut, quod et excepturi, atque neque aperiam!
+		.skills
+			h3 My Skills
+			p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto ut rem officiis unde corrupti repellat numquam accusamus porro quisquam incidunt beatae ad culpa, aut, quod et excepturi, atque neque aperiam!
+
+		.portfolio
+			h3 Portfolio
+			p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto ut rem officiis unde corrupti repellat numquam accusamus porro quisquam incidunt beatae ad culpa, aut, quod et excepturi, atque neque aperiam!
+
+		.form
+			form(action="#")
+			input(type="text" placeholder="Name")
+			input(type="text" placeholder="Email")
+			textarea(name="" id="" placeholder="Description")
+			input(type="submit", value="Submit")
+
+script.
+	$(window).scroll(function() {
+		$(".box").css({
+		'opacity' : 1-(($(this).scrollTop())/250)
+		});          
+	}); 
+
+	var zindex = 9000;
+
+	$('.box').on('click', function() {
+			zindex++;
+			$('.about').css('z-index', zindex);
+			$('.box').css('transform', 'scale(0.01)').fadeOut(1300);
+			$('.selected').removeClass('selected');
+			$('.about').css('transform', 'scale(10)').fadeIn(1300);;
+			$('.about').css('transform', 'scale(1)');
+			$('.about').addClass('selected');
+		});
+
+	$('.aboutli').on('click', function() {
+			zindex++;
+			$('.about').css('z-index', zindex);
+			$('.selected').css('transform', 'scale(0.01)').fadeOut(1300);
+			$('.selected').removeClass('selected');
+			$('.about').css('transform', 'scale(10)').fadeIn(1300);
+			$('.about').css('transform', 'scale(1)');
+			$('.about').addClass('selected');
+		});
+
+	$('.skillsli').on('click', function() {
+			zindex++;
+			$('.skills').css('z-index', zindex);
+			$('.selected').css('transform', 'scale(0.01)').fadeOut(1300);
+			$('.selected').removeClass('selected');
+			$('.skills').css('transform', 'scale(10)').fadeIn(1300);
+			$('.skills').css('transform', 'scale(1)');
+			$('.skills').addClass('selected');
+		});
+
+	$('.portfolioli').on('click', function() {
+			zindex++;
+			$('.portfolio').css('z-index', zindex);
+			$('.selected').css('transform', 'scale(0.01)').fadeOut(1300);
+			$('.selected').removeClass('selected');
+			$('.portfolio').css('transform', 'scale(10)').fadeIn(1300);
+			$('.portfolio').css('transform', 'scale(1)');
+			$('.portfolio').addClass('selected');
+		});
+
+	$('.contactli').on('click', function() {
+			zindex++;
+			$('.form').css('z-index', zindex);
+			$('.selected').css('transform', 'scale(0.01)').fadeOut(1300);
+			$('.selected').removeClass('selected');
+			$('.form').css('transform', 'scale(10)').fadeIn(1300);
+			$('.form').css('transform', 'scale(1)');
+			$('.form').addClass('selected');
+		});
