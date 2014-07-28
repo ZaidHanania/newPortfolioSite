@@ -9,7 +9,7 @@ if(isset($_POST['email'])) {
       
     function died($error) {
         // your error code can go here
-     	header("Location: http://zaid.io/");
+     	echo "Error(s) found in form submission. Please go back and fix them";
     	die();
     }
       
@@ -58,8 +58,10 @@ $headers = 'From: '.$email_from."\r\n".
 'Reply-To: '.$email_from."\r\n" .
 'X-Mailer: PHP/' . phpversion();
 @mail($email_to, $email_subject, $email_message, $headers);  
+header("Location: http://www.zaid.io/");
+?>
 
-header("Location: http://zaid.io/");
-
+<?php 
+}
 die();
 ?>
