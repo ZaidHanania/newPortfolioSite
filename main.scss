@@ -18,6 +18,7 @@ body {
 }
 
 $contrastingColor: #f2c956;
+$purple: #CC4F59;
 
  @mixin font($size, $spacing: normal, $color: white) {
 	font-family: 'Lato', sans-serif;
@@ -30,11 +31,38 @@ $contrastingColor: #f2c956;
  }
 
  ul {
-	padding: 0;
+ 	list-style: none;
+ 	text-align: center;
+ 	padding: 0;
+ 	li {
+ 		display: inline-block;
+ 	}
+ }
+
+ ul.social {
+ 	list-style: none;
+ 	position: absolute;
+ 	top: 0;
+	padding: 10px;
 	margin: 0;
 	list-style: none;
+	text-align: left;
 	li {
 		display: inline-block;
+		a { 
+			svg {
+				height: 45px;
+				width: 45px;
+				padding: 0;
+				margin: 0;
+				transition: fill 0.5s, transform 0.5s;
+				fill: rgba(255,255,255,0.6);
+				&:hover {
+					transform: scale(1.1);
+					fill: $contrastingColor;
+				}
+			}
+		}
 	}
  }
 
@@ -44,40 +72,27 @@ $contrastingColor: #f2c956;
  }
 
 .hero {
-	background:transparent url('images/Hero.jpg') center bottom no-repeat;
+	background:transparent url('images/Hero.jpg') center center no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
 	width: 100%;
 	height: 100vh;
 	text-align: center;
 	position: relative;
-	text-shadow: 0 0 3px #eee;
-	svg{
-		position: fixed;
-		margin: 0 auto;
-		left: 0;
-		right: 0;
-		bottom: 100px;
-		fill: white;
-		width: 50px;
-		transition: all 0.5s ease;
-		filter: drop-shadow(0 0 3px #eee);
-		&:hover {
-			transform: scale(1.1) translateY(10px);
-			cursor: pointer;
-		}
-	}
 }
 
 
 .box {
-	background: rgba(0,0,0,0.5);
-	border: 7px solid white;
+	background: rgba(0,0,0,0.8);
+	//border: 7px solid white;
 	border-radius: 5px;
 	margin: 0 auto;
 	margin-top: 25vh;
 	text-align: center;
-	display: block;
+	//display: block;
+	visibility: visible;
+	opacity: 1;
+	transform: scale(1);
 	width: 620px;
 	padding: 40px 50px;
 	transition: all 1.3s;
@@ -87,10 +102,6 @@ $contrastingColor: #f2c956;
 	&:hover {
 		transform: scale(1.1);
 		cursor: pointer;
-		box-shadow: 0 0 20px #eee;
-		h1, h2 {
-			text-shadow: 0 0 5px #eee;
-		}
 	}
 	h1 {
 		@include font(64px, 7px);
@@ -101,7 +112,7 @@ $contrastingColor: #f2c956;
 		font-weight: 100;
 		transition: all 1s ease;
 		color: $contrastingColor;
-		text-shadow: 0 0 3px #eee, 0 0 1px $contrastingColor;
+	//	text-shadow: 0 0 3px #eee, 0 0 1px $contrastingColor;
 	}
 }
 
@@ -114,13 +125,19 @@ $contrastingColor: #f2c956;
 		text-align: center;
 		bottom: 0;
 		position: absolute;
+		bottom: 0;
+		left: 0;
 		ul {
 			padding: 10px 0;
+			margin: 0;
+			list-style: none;
 			li {
+				display: inline-block;
 				@include font(20px, 2px);
 				padding: 10px 5px;
 				margin: 0 40px;
-				transition: all 0.5s ease;
+				transition: color 0.5s, transform 0.5s;
+				text-shadow: none;
 				&:hover {
 					color: $contrastingColor;
 					cursor: pointer;
@@ -132,35 +149,86 @@ $contrastingColor: #f2c956;
 
 	.about {
 		img {
+			clear: both;
 			width: 130px;
 			height: 130px;
-			border-radius: 50%;
+			border-radius: 5px;
 			padding: 3px;
-			background: white;
+			margin: 15px;
 		}
 	}
 
 	.about, .skills, .portfolio, .form {
-		border-radius: 5px;
-		background: rgba(0,0,0,0.5);
-		border: 7px solid white;
+		border-radius: 10px;
+		background: rgba(0,0,0,0.8);
+		//border: 7px solid white;
 		margin: 0 auto;
-		margin-top: 10vh;
+		margin-top: 15vh;
 		text-align: center;
-		display: none;
-		width: 620px;
+		//display: none;
+		visibility: hidden;
+		opacity: 0;
+		width: 700px;
 		padding: 20px 30px;
 		transition: all 1.3s;
 		position: fixed;
+		transform: scale(5);
 		left: 0;
 		right: 0;
 		h3 {
 			@include font(34px, 5px);
-			font-weight: 400;
+			font-weight: 300;
+			padding-bottom: 10px;
+			border-bottom: 2px solid $contrastingColor;
+			margin-bottom: 15px;
 		}
 		p {
-			@include font(20px);
+			@include font(16px);
 			font-weight: 300;
+		}
+	}
+
+	.skills {
+		li {
+			width: 33%;
+			text-align: center;
+			vertical-align: top;
+		}
+		img, svg {
+			width: 100px;
+			height: 100px;
+			margin: 20px; 
+			vertical-align: bottom;
+		}
+
+		h4 {
+			@include font(22px);
+			font-weight: 400;
+			color: $contrastingColor;
+		}
+	}
+
+	.portfolio {
+		width: 80%;
+		ul {
+			li {
+				width: 30%;
+				display: inline-block;
+				margin: 5px;
+				text-align: center;
+				vertical-align: top;
+				img {
+					padding: 3px;
+					width: 95%;
+					background: $contrastingColor;
+					border-radius: 5px;
+				}
+				h4 {
+					@include font(22px);
+					font-weight: 400;
+					color: $contrastingColor;
+				}
+			}
 		}
 	}
 
@@ -173,8 +241,8 @@ $contrastingColor: #f2c956;
 			transition: padding 1s ease, opacity 1s ease;
 		}
 	  
-	  input[type="text"]:focus::placeholder {
-		 padding-left: 300px;
+		input[type="text"]:focus::placeholder {
+		 	padding-left: 300px;
 		}
 
 	  textarea:focus::placeholder {
@@ -197,6 +265,7 @@ $contrastingColor: #f2c956;
 		  border-color: $contrastingColor;
 		}
 	  }
+
 	  textarea {
 		height: 150px;
 		resize: none;
@@ -217,13 +286,26 @@ $contrastingColor: #f2c956;
 		margin: 0;
 		border: 2px solid transparent;
 		outline: none;
-		text-shadow: 0 0 1px rgba(0,0,0,0.1);
+		text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 		transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550); /* easeInOutBack */
 	transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550); /* easeInOutBack */
-		&:hover{
+		&:hover, &:focus {
 		  transform: scale(1.1);
 		  box-shadow: 0 0 15px #eee;
 		  color: white;
 		}
 	  }
 	}
+
+.selected {
+	transform: scale(1);
+	opacity: 1;
+	visibility: visible;
+}
+
+.unselected {
+	transform: scale(0.001);
+	opacity: 0;
+	visibility: hidden;
+}
+

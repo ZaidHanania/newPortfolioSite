@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/ZaidHanania/newPortfolioSite"
   },
   "author": "Zaid Hanania",
   "license": "ISC",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/ZaidHanania/newPortfolioSite"
   },
-  "homepage": "https://github.com/ZaidHanania",
+  "homepage": "https://github.com/ZaidHanania/newPortfolioSite",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^0.8.2",
@@ -23,7 +23,9 @@
     "grunt-contrib-imagemin": "^0.7.1",
     "grunt-contrib-jade": "^0.12.0",
     "grunt-contrib-sass": "^0.7.3",
-    "grunt-contrib-watch": "^0.6.1"
+    "grunt-contrib-stylus": "^0.18.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-svgmin": "^0.4.0"
   },
   "dependencies": {
     "imagemin-optipng": "^0.1.0"
