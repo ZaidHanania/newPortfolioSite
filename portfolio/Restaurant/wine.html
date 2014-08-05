@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Multi-page Website</title>
+	<link rel="stylesheet" href="main.css">
+	<link href='http://fonts.googleapis.com/css?family=Quattrocento:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Arizonia' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
+	</head>
+<body>
+
+	<section class="sidebar">	<!-- SIDEBAR -->
+		<nav>
+			<img src="images/restaurant.png" alt="">
+			<ul>
+				<a href="index.html"><div class="list"><li class="first">Home</li></div></a>
+				<a href="about.html"><div class="list"><li>About</li></div></a>
+				<div class="list">
+					<li class="test">Menu
+						<div class="extend sidebar">	<!-- POPUP SIDEBAR -->
+							<ul>
+								<a href="appetizers.html"><li class="popup first">Appetizers</li></a>
+								<a href="steak.html"><li class="popup">Steak</li></a>
+								<a href="dessert.html"><li class="popup">Desserts</li></a>
+								<a href="wine.html"><li class="popup">Wine</li></a>
+							</ul>
+						</div>	<!-- END OF POPUP SIDEBAR -->
+					</li>
+				</div>
+				<a href="contact.html"><div class="list"><li>Contact</li></div></a>
+			</ul>
+		</nav>
+	</section>	<!-- END OF SIDEBAR -->
+
+	<section class="content menu wine">
+		<div class="menu-wrapper">
+			<iframe src="http://jacobssteakhouse.com/pdf/winelist.pdf" frameborder="0"></iframe>
+		</div>
+	</section>
+
+	<footer>
+		<p>Copyright © 2014 Zaid Hanania</p>
+		<a href="http://facebook.com"><img src="png/facebook-square.png" alt=""></a>
+		<a href="http://"><img src="png/twitter.png" alt=""></a>
+		<a href="mailto:"><img src="png/mail.png" alt=""></a>
+	</footer>
+
+	
+</body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html><html lang="en"></html><head><meta charset="UTF-8"/><title>Hotel #YOLO</title><link rel="stylesheet" href="main.css"/><link href='http://fonts.googleapis.com/css?family=Raleway:400,100,300,200' rel='stylesheet' type='text/css'></head><body><div class="done"><h1 class="intro">Book Your Room</h1><div class="appear"><div class="large"><img src="" alt="" class="big"/><img src="images/close.png" alt="" class="close"/></div></div><img src="images/JB.png" alt="" class="addOn people JB"/><img src="images/drake.png" class="addOn people drake"/><img src="images/robford.png" alt="" class="addOn people RF"/><img src="images/nicki.png" alt="" class="addOn people nicki"/><img src="images/queen.png" alt="" class="addOn people queen"/><img src="images/kim.png" alt="" class="addOn people kim"/><img src="images/sushi.png" alt="" class="addOn food sushi"/><img src="images/nachos.png" alt="" class="addOn food nachos"/><img src="images/burger.png" alt="" class="addOn food burger"/><img src="images/salad.png" alt="" class="addOn food salad"/><img src="images/champagne.png" alt="" class="addOn drink champagne"/><img src="images/beer.png" alt="" class="addOn drink beer"/><img src="images/vodka.png" class="addOn drink vodka"/><img src="images/tequila.png" alt="" class="addOn drink tequila"/><img src="images/wine.png" alt="" class="addOn drink wine"/><div class="price"><h2>Total Price</h2><p class="total">$4,000.00</p></div><div class="menu"><h1>#YOLO</h1><h2>Extras:</h2><ul class="mainMenu"><li class="alcohol">Alcohol<ul class="alcohol"><li class="champagneli">Champagne</li><li class="wineli">Wine</li><li class="vodkali">Vodka</li><li class="tequilali">Tequila</li><li class="beerli">Beer</li></ul></li><li class="food">Food<ul class="food"><li class="sushili">Sushi</li><li class="burgerli">Burger</li><li class="saladli">Salad</li><li class="nachosli">Nachos</li></ul></li><li class="women">Women<ul class="women"><li class="kimli">Kim Kardashian</li><li class="queenli">Queen Elizabeth</li><li class="nickili">Nicki Minaj</li></ul></li><li class="men">Men<ul class="men"><li class="JBli">Justin Bieber</li><li class="RFli">Rob Ford</li><li class="drakeli">Drake</li></ul></li></ul></div><div class="wrapper"><div class="side"><img src="images/room1.jpg" alt="" class="sidePic"/><img src="images/room2.jpg" alt="" class="sidePic"/><img src="images/room3.jpg" alt="" class="sidePic"/><img src="images/room4.jpg" alt="" class="sidePic"/><img src="images/room5.jpg" alt="" class="sidePic"/></div><div class="main"><img src="images/room1.jpg" alt="" class="small"/></div></div></div></body><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script><script>$(document).ready(function(){
+
+ $('body').hide().fadeIn(300);
+ 
+ var total = 4000;
+ 
+ var update = function(price) {
+  price = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  $('.total').text('$' + price + '.00');
+ }
+ 
+ var z = 9000;
+ 
+ var room1 = 4000;
+ var room2 = 1800;
+ var room3 = 7300;
+ var room4 = 300000;
+ var room5 = 1200;
+ 
+ var kim = 200000;
+ var rob = 1200000;
+ var drake = 3200000;
+ var justin = 5000000;
+ var nicki = 900000;
+ var queen = 21000000;
+ 
+ var sushi = 175;
+ var burger = 25;
+ var salad = 35;
+ var nachos = 22;
+ 
+ var champagne = 560;
+ var wine = 400;
+ var vodka = 630;
+ var beer = 30;
+ var tequila = 120;
+ 
+ var drinks = 0;
+ var food = 0;
+ var people = 0;
+ 
+ $('.addOn').draggable({ containment: ".main" });
+ 
+ $('.addOn').on('drag', function(){
+   z++;
+   $(this).css('z-index', z);
+ });
+ 
+ $('img.sidePic').on('click', function(){
+ 
+  $('.addOn').hide();
+  people = 0;
+  drinks = 0;
+  food = 0;
+  total = 0;
+  
+  // get src of image clicked
+   var clicked = $(this).attr('src');	
+   
+   if (clicked.indexOf("room1") >= 0){
+    total += room1;
+    }
+   else if (clicked.indexOf("room2") >= 0){
+    total += room2;
+    }
+   else if (clicked.indexOf("room3") >= 0){
+    total += room3;
+    }
+   else if (clicked.indexOf("room4") >= 0){
+    total += room4;
+    }
+   else if (clicked.indexOf("room5") >= 0){
+    total += room5;
+    }
+    
+   update(total);
+   
+   
+   $('img.small').attr('src', clicked);
+  // make it display:none
+   $('img.small').hide();
+   
+  //makes it display:block and adds a transition
+   $('img.small').fadeIn('slow');
+  });
+  
+   $('.main').on('click', 'img', function(){
+    var source = $(this).attr('src');
+    
+    $('.big').attr('src', source);
+    
+    $('.appear').fadeIn('slow');
+   });
+   
+   $('img.close').on('click', function(){
+    $('.appear').fadeOut();
+    });
+    
+    
+   $('li.alcohol').on('click', function(){
+     $('ul.alcohol').slideToggle();
+   });
+   
+   $('li.food').on('click', function(){
+     $('ul.food').slideToggle();
+   });
+   
+   $('li.women').on('click', function(){
+     $('ul.women').slideToggle();
+   });
+   
+   $('li.men').on('click', function(){
+     $('ul.men').slideToggle();
+   });
+   
+   $('.JBli').on('click', function(){
+    if(people > 1) return;
+    if( $('.JB').css('display')=== 'none') {
+     people++;
+     total += justin;
+     update(total);
+     z++;
+     $('.JB').css('z-index', z).fadeIn();
+    }
+    });
+    
+   $('.drakeli').on('click', function(){
+    if(people > 1) return;
+    if( $('.drake').css('display')=== 'none') {
+     people++;
+     total += drake;
+     update(total);
+     z++;
+     $('.drake').css('z-index', z).fadeIn();
+    }
+    });
+    
+   $('.RFli').on('click', function(){
+    if(people > 1) return;
+    if( $('.RF').css('display')=== 'none') {
+     people++;
+     total += rob;
+     update(total);
+     z++;
+     $('.RF').css('z-index', z).fadeIn();
+    }
+    });
+    
+   $('.nickili').on('click', function(){
+    if(people > 1) return;
+    if( $('.nicki').css('display')=== 'none') {
+     people++;
+     total += nicki;
+     update(total);
+     z++;
+     $('.nicki').css('z-index', z).fadeIn();
+    }
+    });
+    
+   $('.queenli').on('click', function(){
+    if(people > 1) return;
+    if( $('.queen').css('display')=== 'none') {
+     people++;
+     total += queen;
+     update(total);
+     z++;
+     $('.queen').css('z-index', z).fadeIn();
+    }
+    });
+    
+   $('.kimli').on('click', function(){
+    if(people > 1) return;
+    if( $('.kim').css('display')=== 'none') {
+     people++;
+     total += kim;
+     update(total);
+     z++;
+     $('.kim').css('z-index', z).fadeIn();
+    }
+   });
+   
+   $('.sushili').on('click', function(){
+    if(food > 1) return;
+    if( $('.sushi').css('display')=== 'none') {
+     food++;
+     z++;
+     $('.sushi').css('z-index', z).fadeIn();
+     total += sushi;
+     update(total);
+    }
+    });
+    
+   $('.nachosli').on('click', function(){
+    if(food > 1) return;
+    if( $('.nachos').css('display')=== 'none') {
+     food++;
+     z++;
+     total += nachos;
+     $('.nachos').css('z-index', z).fadeIn();
+     update(total);
+    }
+    });
+    
+   $('.burgerli').on('click', function(){
+    if(food > 1) return;
+    if( $('.burger').css('display')=== 'none') {
+     total += burger;
+     food ++;
+     update(total);
+     z++;
+     $('.burger').css('z-index', z).fadeIn();
+    }
+    });
+    
+    
+   $('.saladli').on('click', function(){
+    if(food > 1) return;
+    if( $('.salad').css('display')=== 'none') {
+     food ++;
+     total += salad;
+     update(total);
+     z++
+     $('.salad').css('z-index', z).fadeIn();
+    }
+    });
+    
+   $('.wineli').on('click', function(){
+    if(drinks > 1) return;
+    if( $('.wine').css('display')=== 'none') {
+     drinks ++;
+     total += wine;
+     update(total);
+     z++;
+     $('.wine').css('z-index', z).fadeIn();
+    }
+    });
+    
+   $('.vodkali').on('click', function(){
+    if(drinks > 1) return;
+    if( $('.vodka').css('display')=== 'none') {
+     drinks ++;
+     total += vodka;
+     update(total);
+     z++;
+     $('.vodka').css('z-index', z).fadeIn();
+    }
+    });
+    
+   $('.champagneli').on('click', function(){
+    if(drinks > 1) return;
+    if( $('.salad').css('display')=== 'none') {
+     drinks++;
+     total += champagne;
+     update(total);
+     z++;
+     $('.champagne').css('z-index', z).fadeIn();
+    }
+    });
+    
+   $('.beerli').on('click', function(){
+    if(drinks > 1) return;
+    if( $('.beer').css('display')=== 'none') {
+     drinks++;
+     total += beer;
+     update(total);
+     z++;
+     $('.beer').css('z-index', z).fadeIn();
+    }
+    });
+    
+   $('.tequilali').on('click', function(){
+    if(drinks > 1) return;
+    if( $('.tequila').css('display')=== 'none') {
+     total += tequila;
+     drinks++;
+     update(total);
+     z++;
+     $('.tequila').css('z-index', z).fadeIn();
+    }
+    });
+    
+   $('.addOn').on('dblclick',function(){
+     var t = $(this);
+     if(t.hasClass('kim')){
+      total -= kim;
+      update(total);
+      people--
+     }
+     if(t.hasClass('queen')){
+      total -= queen;
+      update(total);
+      people--;
+     }
+     if(t.hasClass('nicki')){
+      total -= nicki;
+      update(total);
+      people--;
+     }
+     if(t.hasClass('JB')){
+      total -= justin;
+      update(total);
+      people--;
+     }
+     if(t.hasClass('drake')){
+      total -= drake;
+      update(total);
+      people--;
+     }
+     if(t.hasClass('RF')){
+      total -= rob;
+      update(total);
+      people--;
+     }
+     if(t.hasClass('sushi')){
+      total -= sushi;
+      update(total);
+      food--;
+     }
+     if(t.hasClass('burger')){
+      total -= burger;
+      update(total);
+      food--;
+     }
+     if(t.hasClass('salad')){
+      total -= salad;
+      update(total);
+      food--;
+     }
+     if(t.hasClass('nachos')){
+      total -= nachos;
+      update(total);
+      food--;
+     }
+     if(t.hasClass('champagne')){
+      total -= champagne;
+      update(total);
+      drinks--;
+     }
+     if(t.hasClass('wine')){
+      total -= wine;
+      update(total);
+      drinks--;
+     }
+     if(t.hasClass('vodka')){
+      total -= vodka;
+      update(total);
+      drinks--;
+     }
+     if(t.hasClass('beer')){
+      total -= beer;
+      update(total);
+      drinks--;
+     }
+     if(t.hasClass('tequila')){
+      total -= tequila;
+      update(total);
+      drinks--;
+     }
+     $(this).fadeOut();
+   });
+   
+ });
+ 
+ 
+//- $(document).ready(function(){
+//- 	$('img.sidePic').on('click', function(e){
+//- 			e.preventDefault();
+//- 			var source = $(this).attr('src');
+//- 			source = source.replace('small', 'large');
+//- 			$('img.small').remove();
+//- 			$('.main').append('<img class="small" src=' + '"' + source + '">').hide().fadeIn('slow');
+//- 			$('.magnify').css('background-image', 'url(' + source + ')');
+//- 		});
+ //- var container = $('.main');
+ //- var lmargin = container.offset().left;
+ //- var tmargin = container.offset().top;
+ 
+ //- container.mouseover(function(e){
+ //- 	var xcenter = e.pageX - lmargin;
+ //- 	var ycenter = e.pageY - tmargin;
+ 
+ //- 	var l = xcenter;
+ //- 	var t = ycenter - 100;
+ 
+ 
+ //- 	$('.magnify').css({left:l+'px', top: t+'px'});
+ 
+ //- 	var limg = -(xcenter);
+ //- 	var timg = -(ycenter);
+ 
+ //- 	$('.magnify').css({backgroundPosition: limg+'px ' + timg+'px'})
+ 
+ //- 	});
+ 
+ //- $('.main').mouseout(function(e){
+ //- 		$('.magnify').css({left:'-9999px'});
+ //- 	});
+ 
+ 
+ 
+ //- });
+ </script>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hotel #YOLO</title>
+	<link rel="stylesheet" href="stylesheet.css">
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100,300,200' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+	
+	<div class="main">
+
+		<h1>Experience Hotel #YOLO</h1>
+		<p>Welcome to Hotel YOLO<br>Where YOLO isn't just a tattoo on a bearded guy's leg, it's a way of life.</p>
+
+		<div class="hotel">
+			<img src="images/hotel.jpg" alt="hotel">
+		</div>
+
+		<h2>Room Selection</h2>
+		<p class = "description">Begin by selecting a room in the main image gallery. Our rooms appeal to those who demand the ultimate luxury or complete and utter shit. We don't do the middle ground.</p>
+
+		<h2>Extras</h2>
+		<p class = "description"> Once you have found a room feel free to browse our selection of food, alcohol, and humans in order to enrich or worsen your stay and embrace the YOLO philosophy. You will find a variety of items from delicious nachos and sushi to scumbag politicians to talentless celebrities.</p>
+
+		<h2>Prices</h2>
+		<p class = "description">At YOLO we believe that prices should make absolutely no sense and therefore we haven't given our prices any thought whatsoever. Seriously, they make no sense. You will find our prices in the lower right corner of the page.</p>
+
+
+		<h2>Faces of Previous Guests After YOLOing</h2>
+	<div class="faces">
+		<img src="images/cage.png" alt="Cage">
+		<img src="images/obama.jpg" alt="Obama">
+		<img src="images/gates.jpg" alt="Gates">
+		<img src="images/romney.jpg" alt="Romney">
+	</div>
+
+
+		<div class="button">
+		<p href="main.html">Click to Continue</p>
+		</div>
+
+	</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+	$('.button').on('click', function(){
+		$('body').fadeOut();
+		setTimeout(function(){
+		window.location.href = 'main.html';
+	}, 200);
+
+	});
+
+</script>
+</body>
+</html>
